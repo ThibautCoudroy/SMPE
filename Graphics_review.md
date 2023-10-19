@@ -73,7 +73,9 @@
 
 (I feel like I was not able to show through the checklist that it's very hard to see which tone of color is in each segment)
 
-### Gun deths in Florida
+### Gun deaths in Florida
+
+![image](https://github.com/ThibautCoudroy/SMPE/assets/118765131/ef72c1bc-aa59-4abf-a072-2a5b552dbd18)
 
 #### Data
 - [x] Type of graphic adapted
