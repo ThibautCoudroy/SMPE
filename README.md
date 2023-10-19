@@ -1,4 +1,4 @@
-# 29/09
+# 28/09
 
 ## Homework
 - [x] Read Popper's text
@@ -10,10 +10,13 @@
 - [x] Set up a computational document system (Jupyter).
 - [x] Report the URL of your git project, your mattermost ID on the [Pad](https://codimd.math.cnrs.fr/Dai2ZzqzTwezOMZVIyMN-g#).
 
-# 6/10
+# 5/10
 
 ## Homework
 
  - [x] Start learning R by reading this [R crash course for computer scientists](https://htmlpreview.github.io/?https://github.com/alegrand/SMPE/blob/master/sessions/2022_10_Grenoble/R_crash_course.html)
- - [ ] Complete the two data analysis/visualization in a clean R notebook and upload in your github/gitlab space. Make sure we can easily find it when landing on your page. :)
+ - [ ] Criticize every figure of Jean-Marc’s slides by:
+     i. Applying the checklist for good graphics
+     ii. Proposing a better representation (hand-drawing is fine) that passes the checklist
+ - [ ] Report this work for at least 3 figures here
  - [ ] MOOC: Complete exercise 5 of module 2 (/Challenger/). Write a short text explaining what is good and wrong about this document (you may want to provide an updated version of the notebook) and upload on your github/gitlab space.
