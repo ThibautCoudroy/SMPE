@@ -20,3 +20,12 @@
   2. Proposing a better representation (hand-drawing is fine) that passes the checklist
  - [ ] Report this work for at least 3 figures here
  - [ ] MOOC: Complete exercise 5 of module 2 (/Challenger/). Write a short text explaining what is good and wrong about this document (you may want to provide an updated version of the notebook) and upload on your github/gitlab space.
+
+# 19/10
+
+## Homework
+
+- [ ] Use good naming and organization conventions in your repos.
+- [ ] Use dplyr and ggplot for the first/last name analysis! Complete challenger if you haven't done so.
+- [ ] If you have time, git a try to git-annex but no worry if you can't. What's important is that you know it exists, what it allows to do, and that it is not so difficult to use.
+- [ ] Engage in module 3 of the MOOC and choose a topic for the peer evaluation (final task of module 3).
