@@ -9,7 +9,7 @@
 
 #### Graphical objects
 - [ ] Graphical objects are readable on any support
-- [X] Standard color range
+- [ ] Standard color range
 - [X] Axis identified and labelled
 - [X] Scales units are explicit
 - [ ] No ambiguity when curves cross
@@ -92,7 +92,7 @@
 #### Annotation
 - [x] Axis are labelled by quantities
 - [x] Labels of the axis are clear, and self contained
-- [ ] Units are indicated on the axis
+- [X] Units are indicated on the axis
 - [ ] Axes are oriented fron bottom-left to top-right
 - [x] Origin should be (0,0), if not it should be clearly justified
 - [x] No Hole on the axes
