@@ -15,10 +15,10 @@
 ## Homework
 
  - [x] Start learning R by reading this [R crash course for computer scientists](https://htmlpreview.github.io/?https://github.com/alegrand/SMPE/blob/master/sessions/2022_10_Grenoble/R_crash_course.html)
- - [ ] Criticize every figure of Jean-Marc’s slides by:
+ - [x] Criticize every figure of Jean-Marc’s slides by:
   1. Applying the checklist for good graphics
   2. Proposing a better representation (hand-drawing is fine) that passes the checklist
- - [ ] Report this work for at least 3 figures here
+ - [x] Report this work for at least 3 figures here
  - [ ] MOOC: Complete exercise 5 of module 2 (/Challenger/). Write a short text explaining what is good and wrong about this document (you may want to provide an updated version of the notebook) and upload on your github/gitlab space.
 
 # 19/10
