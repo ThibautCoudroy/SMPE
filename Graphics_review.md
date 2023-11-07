@@ -39,6 +39,9 @@
 - [x] The graphic has a title
 - [x] The title is meaningful and self contained
 
+#### Proposition
+![IMG_20231108_005306](https://github.com/ThibautCoudroy/SMPE/assets/118765131/12e30dae-d5f2-4088-9de1-79087180916f)
+
 ### Mean temperature
 
 ![image](https://github.com/ThibautCoudroy/SMPE/assets/118765131/6504cec8-26a6-44c4-b3de-84f797024773)
@@ -110,4 +113,7 @@
 - [ ] The graphics is the most appropriate representation for the data
 - [x] The graphic has a title
 - [ ] The title is meaningful and self contained
+
+#### Proposition
+![IMG_20231108_005253](https://github.com/ThibautCoudroy/SMPE/assets/118765131/4bfb3c11-bfd3-4aec-8c17-1c80ea7555f5)
 
