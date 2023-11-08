@@ -19,7 +19,7 @@
   1. Applying the checklist for good graphics
   2. Proposing a better representation (hand-drawing is fine) that passes the checklist
  - [x] Report this work for at least 3 figures here
- - [ ] MOOC: Complete exercise 5 of module 2 (/Challenger/). Write a short text explaining what is good and wrong about this document (you may want to provide an updated version of the notebook) and upload on your github/gitlab space.
+ - [X] MOOC: Complete exercise 5 of module 2 (/Challenger/). Write a short text explaining what is good and wrong about this document (you may want to provide an updated version of the notebook) and upload on your github/gitlab space.
 
 # 19/10
 
