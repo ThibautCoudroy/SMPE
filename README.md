@@ -15,7 +15,7 @@
 ## Homework
 
  - [x] Start learning R by reading this [R crash course for computer scientists](https://htmlpreview.github.io/?https://github.com/alegrand/SMPE/blob/master/sessions/2022_10_Grenoble/R_crash_course.html)
- - [x] Criticize every figure of Jean-Marc’s slides by:
+ - [x] Criticize every figure of Jean-Marc's slides by:
   1. Applying the checklist for good graphics
   2. Proposing a better representation (hand-drawing is fine) that passes the checklist
  - [x] Report this work for at least 3 figures here
@@ -25,7 +25,7 @@
 
 ## Homework
 
-- [ ] Use good naming and organization conventions in your repos.
-- [X] Complete the Challenger exercise if you haven’t done so.
+- [X] Use good naming and organization conventions in your repos.
+- [X] Complete the Challenger exercise if you haven't done so.
 - [ ] Engage in module 3 of the MOOC and choose a topic for the peer evaluation (final task of module 3).
 - [ ] Here is an opportunity to practice your data curation/analysisskills by producing the [First name/last name analysis in a computational document](https://github.com/alegrand/SMPE/blob/master/sessions/2022_10_Grenoble/03_Names-Methodo2022-exercise.Rmd). I encourage you to use dplyr and ggplot for this analysis.

@@ -1,0 +1,34 @@
+---
+title: "draft_smpe"
+author: "COUDROY Thibaut"
+date: "2023-10-19"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+```
+
+```{r cars}
+# dplyr used to avoid loops (d'=h(g(d)) becomes d -g-> -h-> d')
+
+# ggplot
+# facet-wrap to split graph
+```
+
+```{r}
+
+df = read.csv("https://raw.githubusercontent.com/alegrand/SMPE/master/lectures/data/set1_flat.csv",header=T)
+
+df$Alternative = factor(df$Alternative) # Useful when column is different types
+
+str(df)
+head(df)
+tail(df)
+summary(df)
+
+# df %>% group_by(Alternative) %>% summarise(num = n(), sd = sd(df), )
+
+```
