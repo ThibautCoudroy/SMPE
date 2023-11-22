@@ -1,0 +1,18 @@
+---
+title: "Quicksort analysis"
+output: html_notebook
+---
+
+
+```{r}
+library(ggplot2)
+library(dplyr)
+data = read.csv("../data/measurements_03 47.csv")
+
+data %>% group_by(Type, Size) %>% summarise(num = n(), mean = mean(Time), sd = sd(Time), se = 2*sd/sqrt(num)) -> data_by_type_and_size
+
+data_by_type_and_size
+ggplot(data_by_type_and_size, aes(x=Size, y=mean, color=Type)) + geom_point(alpha=.5) + geom_errorbar(alpha=.5,aes(ymin=mean-se, ymax=mean+se), width=25000) + theme_bw() + geom_line() # + scale_x_log10() # logarithmic scale for x axis
+
+```
+

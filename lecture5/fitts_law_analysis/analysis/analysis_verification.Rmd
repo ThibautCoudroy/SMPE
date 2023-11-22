@@ -1,0 +1,69 @@
+---
+title: "analysis_verif"
+author: "COUDROY Thibaut"
+date: "2023-11-16"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Loading libraries
+
+```{r loading ggplot2}
+library(ggplot2)
+library(dplyr)
+```
+
+## Loading data
+
+```{r loading csv data into a dataframe}
+
+# In the original study, the following variables are used
+# "I ran the experiment from the above Webpage with 1, 2 and 4 widths and with 16, 32 and 64 distances, with 6 trials for each combination."
+
+# FILENAMES t
+filenames_T <- c("../data/20231116_1504_RawData_Big_T.csv", "../data/20231116_1504_RawData_Small_T.csv",
+               "../data/20231116_1504_RawData_128A_T.csv", "../data/20231116_1602_RawData_12W_T.csv")
+
+total_T = c()
+
+for (e in filenames_T) {
+  rawdf <- read.csv(e, header=T, skip=2)
+  total_T <- rbind(total_T, rawdf)
+}
+
+total_T %>% mutate(Name = "T") -> total_T
+
+# FILENAMES G
+filenames_G <- c("../data/20231116_1500_RawData_12W_G.csv", "../data/20231116_1500_RawData_Small_G.csv",
+                 "../data/20231116_1510_RawData_Big_G.csv", "../data/20231116_1530_RawData_128A_G.csv")
+
+total_G = c()
+
+for (e in filenames_G) {
+  rawdf <- read.csv(e, header=T)
+  total_G <- rbind(total_G, rawdf)
+}
+
+total_G %>% mutate(Name = "G") -> total_G
+
+# MERGE
+total <- rbind(total_T, total_G)
+
+total %>% mutate(ID = log2(2*A/W)) %>% group_by(A, W, ID, TestName, Name) %>% summarise(MT = mean(MT)) %>% filter(TestName == "Small") -> meandf
+
+# In the experimental design, the mean data is available as a file.
+# Having it directly computed in R helps not having any issue if anything changes and avoids errors.
+
+meandf
+```
+
+## Plotting the data together with the linear regression
+
+```{r Plotting the raw data together with the linear regression}
+ggplot(meandf, aes(ID, MT)) +
+  geom_point(aes(color=Name)) +
+  geom_smooth(aes(color=Name), method='lm')
+```
