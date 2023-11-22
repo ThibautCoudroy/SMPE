@@ -31,7 +31,7 @@ unzip(file)
 ```
 Check if your file is the same as in the first analysis (reproducibility)
 ```{bash}
-md5 dpt2021.csv
+md5sum dpt2021.csv
 ```
 expected :
 MD5 (dpt2021.csv) = f18a7d627883a0b248a0d59374f3bab7
@@ -49,3 +49,99 @@ All of these following questions may need a preliminary analysis of the data, fe
 1. Choose a firstname and analyse its frequency along time. Compare several firstnames frequency
 2. Establish by gender the most given firstname by year. Analyse the evolution of the most frequent firstname.
 3. Optional : Which department has a larger variety of names along time ? Is there some sort of geographical correlation with the data?
+
+## Analysis of a given firstname
+
+We are going to analyze the frequency of the name "Thibaut", and other common spellings ("Thibault", "Thibaud") of the name to compare their popularity.
+
+```{r}
+
+
+graph_freq <- function(list_names, y_scale_log) {
+  # list_names is an array of names in capital
+  # Only keep data for given names
+  FirstNames %>% filter(preusuel %in% list_names) -> AllGivenNames
+  
+  # Plot frequency over time (year)
+  AllGivenNames %>% filter(annais!="XXXX") %>% group_by(preusuel, annais) %>% summarize(nombre = sum(nombre)) %>% mutate(annais = as.integer(annais)) -> AllGivenNamesYears
+  
+  render = ggplot(AllGivenNamesYears, aes(annais, nombre, color=preusuel)) + theme_bw() + geom_point() + geom_line()
+  if (y_scale_log) {
+    render + scale_y_log10()
+  } else {
+    render
+  }
+}
+
+graph_freq(c("THIBAULT","THIBAUT","THIBAUD"), FALSE)
+```
+
+As we can see the name was most popular between the 80s and 10s and is downgrading almost constantly this recent years. The different spellings follow the same trend overall, but we can observe "Thibault" is the most popular one and "Thibaud" the least since the 80s. In the 70s, "Thibaut" was the most popular spelling of the name in France.
+
+Now, let's see how "Thibaut" compares to other popular names in terms of frequency.
+This time we will use logarithmic scales because it's not possible to clearly see some parts of the graph if we do not use it.
+I choose to compare the name to other "masculine" first names among the top 10
+
+```{r}
+# List of popular names
+FirstNames %>% group_by(preusuel) %>% summarize(n = sum(nombre)) %>% arrange(desc(n))
+```
+```{r}
+graph_freq(c("THIBAUT","JEAN","PIERRE","RENÉ","MICHEL","LOUIS"), TRUE)
+```
+This graph tells us a lot of info. First of all, some parts of the curve are related to events which influenced the number of newborns (For example, World War 1 where every name has a drop between 1915 and 1920). But most importantly, we see that the names do not share the same tendencies.
+
+For example, "René" is almost not given to anyone anymore, whereas "Louis" has regained popularity. Compared to "Thibaut", which was more given in the 80s, "Louis" is now >20 times as popular.
+
+## Most given firstname by year for two sexes
+
+<!-- 2. Establish by gender the most given firstname by year. Analyse the evolution of the most frequent firstname. -->
+
+For the following study, we will consider the two sexes attributed at birth in France (male and female).
+
+```{r}
+# Ignore data for unknown year & rare names and merge each department in France
+FirstNames %>% filter(preusuel!="_PRENOMS_RARES") %>% group_by(sexe, preusuel, annais) %>% summarize(nombre=sum(nombre)) %>% filter(annais!="XXXX") -> FirstNamesFrance
+
+# Only keep the most popular name for each sex and year
+# We can use filter(nomber=max(nombre)) but I also wanted to try out sorting with arrange
+FirstNamesFrance %>% group_by(sexe, annais) %>% arrange(desc(nombre)) %>% filter(row_number()==1) -> MostGivenNamePerYear
+
+# We will only keep a slice of the data to show the graph
+intToSex <- c("M","F")
+MostGivenNamePerYear %>% mutate(annais = as.integer(annais), sexe = intToSex[as.integer(sexe)], nombre = as.integer(nombre)) %>% filter(annais>=2010) -> MostGivenNamePerYearStart2010
+
+plot <- ggplot(MostGivenNamePerYearStart2010, aes(x=annais, y=nombre, fill=sexe)) + geom_bar(stat="identity", position = "dodge", aes(color=sexe))
+
+# Render plot with text
+plot + theme_bw() + geom_text(aes(label=preusuel), position=position_dodge(1), size=3, hjust = 1.1, color="white", angle = 90)
+```
+
+Since 2010, it seems "Lucas" and then Gabriel" are really popular for the male sex. For female, "Emma" and "Jade" are the most given names. We can also observe that the most popular name for male is always more given than the most popular female name, which is likely not due to the birth frequency between those two sexes because they are roughly the same. (We could explore some hypothesis, like female having more uncommon names, or maybe studying the top 5 names for each gender, to see if the top 5 given name for females have approx the same number as top 5 male).
+
+Also, we can see that over time the most popular name for each sex is decreasing. This likely means that more different names are given to newborns (or different spelling), which can also be observed with the growing number of "rares names" in the data (when the name is too rare and given to less than 20 babies since 1900).
+
+```{r}
+graph_freq(c("_PRENOMS_RARES"), FALSE)
+```
+
+"Analyse the evolution of the most frequent firstname"
+
+This part is not finished, as I am unsure if it is about the evolution of the first name given the most since 1900 ("Marie" and "Jean"), or the evolution of which name was the most given each year and its frequency (like the fact that over time the most given name is less frequent).
+
+The following graph shows the evolution of how much the first name was given each year
+
+```{r}
+MostGivenNamePerYear %>% select(-preusuel) %>% mutate(annais = as.integer(annais), sexe = intToSex[as.integer(sexe)], nombre = as.integer(nombre)) -> EvolutionMostGivenName
+
+ggplot(EvolutionMostGivenName, aes(x=annais, y=nombre)) + geom_line(aes(color=sexe)) + theme_bw()
+```
+
+
+
+
+
+
+
+
+
