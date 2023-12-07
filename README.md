@@ -41,3 +41,9 @@
 ## Homework
 
 - [] Try to complete the peer-evaluation of the MOOC
+
+# 7/12
+
+## Homework
+
+- [] Read Two views on Open Science for next week ([first](https://digitalscience.figshare.com/articles/report/The_State_of_Open_Data_2023/24428194), [second](https://www.ouvrirlascience.fr/passport-for-open-science-a-practical-guide-for-phd-students/)). Write down what you learnt (what appears useful, what is surprising, …) and your opinion on potential biases in both documents.
