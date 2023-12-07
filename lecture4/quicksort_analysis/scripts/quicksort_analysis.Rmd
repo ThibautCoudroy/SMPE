@@ -16,3 +16,29 @@ ggplot(data_by_type_and_size, aes(x=Size, y=mean, color=Type)) + geom_point(alph
 
 ```
 
+## Playing with linar regression
+
+```{r}
+data
+
+data %>% filter(Type == " Parallel") -> dataSeq
+
+reg = lm(dataSeq$Time~dataSeq$Size*log(dataSeq$Size))  # Let's compare time to O(n log(n)) of the size
+
+summary(reg) # Intercept probability is quite high, but R² is good
+
+# par(mfrow=c(2,2))
+# plot(reg)
+# par(mfrow=c(1,1))
+```
+
+
+
+
+
+
+
+
+
+
+
