@@ -21,3 +21,10 @@
 - There are high differences between countries, cultural & laws
 
 # [Second Document](https://www.ouvrirlascience.fr/passport-for-open-science-a-practical-guide-for-phd-students/)
+
+- European Union requires open access to data to research it funds. Other initiatives exists at different scales (France, ...)
+- Article contains some resources for databases online
+- RDM seems to be quite important to establish at the beginning and makes it clear for the whole study
+- I didn't know publication cost was this high (thousand euros for an article??)
+- Exclusivity embargo of a few months (6 or 12), but then article may be published on open archive if > half publicly funded
+- Peer review had issues which could be resolved with open data (pagiarism, not knowing the subject, ...) and sharing different info (peers not anonymous anymore for example)
