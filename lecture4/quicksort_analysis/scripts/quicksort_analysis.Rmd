@@ -3,6 +3,7 @@ title: "Quicksort analysis"
 output: html_notebook
 ---
 
+# Analysis of quicksort algorithm and its parallel version
 
 ```{r}
 library(ggplot2)
@@ -16,24 +17,29 @@ ggplot(data_by_type_and_size, aes(x=Size, y=mean, color=Type)) + geom_point(alph
 
 ```
 
-## Playing with linar regression
+## Playing with linear regression
+
+Since our algorithm is splitting between multiple sub-arrays which are sorted before being merged, we can expect the algorithm to be $O(n)\times\log(n)$ (thanks to the Master Theorem). This means that as $n$ grows, we should get close to this shape but doesn't tell anything for low values.
 
 ```{r}
-data
-
 data %>% filter(Type == " Parallel") -> dataSeq
 
-reg = lm(dataSeq$Time~dataSeq$Size*log(dataSeq$Size))  # Let's compare time to O(n log(n)) of the size
+reg = lm(dataSeq$Time ~ dataSeq$Size * log(dataSeq$Size))  # Let's compare time to O(n log(n)) of the size
 
-summary(reg) # Intercept probability is quite high, but R² is good
+summary(reg)
+```
+What we can see from this first summary in the fact we have low values for `Pr(>|t|)`, except for the Intercept.\
+We also have a big value for R², which means that this model fits well the data as it lefts a low amount of noise.\
+Now let's look at the residuals.
 
-# par(mfrow=c(2,2))
-# plot(reg)
-# par(mfrow=c(1,1))
+```{r}
+par(mfrow=c(2,2))
+plot(reg)
+par(mfrow=c(1,1))
 ```
 
-
-
+The up-left plot is a good sign, as it seems like overall we have a line around $0$.\
+The Q-Q also seems to confirm that our model fits well.
 
 
 
