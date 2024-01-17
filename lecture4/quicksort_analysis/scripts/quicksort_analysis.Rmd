@@ -24,7 +24,7 @@ Since our algorithm is splitting between multiple sub-arrays which are sorted be
 ```{r}
 data %>% filter(Type == " Parallel") -> dataSeq
 
-reg = lm(dataSeq$Time ~ dataSeq$Size * log(dataSeq$Size))  # Let's compare time to O(n log(n)) of the size
+reg = lm(dataSeq$Time ~ I(dataSeq$Size * log(dataSeq$Size)))  # Let's compare time to O(n log(n)) of the size
 
 summary(reg)
 ```
@@ -38,8 +38,8 @@ plot(reg)
 par(mfrow=c(1,1))
 ```
 
-The up-left plot is a good sign, as it seems like overall we have a line around $0$.\
-The Q-Q also seems to confirm that our model fits well.
+The up-left plot is a good sign in terms of absolute value, and it is overall close to a line around $0$. But we can see a slope and the residual being higher for some points.\
+The Q-Q also seems to confirm that our model fits well the global trend.
 
 
 
