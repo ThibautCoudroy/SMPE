@@ -53,4 +53,4 @@
 ## Homework
 
 - [ ] Keep playing with the [DoE Shiny Application](https://arnaud-legrand.shinyapps.io/design_of_experiments/?user_a7710).
-- [ ] Prepare a short presentation on the topic (see Pad)
+- [X] Prepare a short presentation on the topic (see Pad)
